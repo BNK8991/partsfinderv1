@@ -1,0 +1,349 @@
+[
+    {
+      "model": "products.SubCategory",
+      "pk": 1,
+      "fields": {
+        "name": "Intel Core i3",
+        "category": 1
+      }
+    },
+{
+    "model": "products.SubCategory",
+    "pk": 2,
+    "fields": {
+        "name": "Intel Core i5",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 3,
+    "fields": {
+        "name": "Intel Core i7",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 4,
+    "fields": {
+        "name": "Intel Core i9",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 5,
+    "fields": {
+        "name": "AMD Ryzen 3",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 6,
+    "fields": {
+        "name": "AMD Ryzen 5",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 7,
+    "fields": {
+        "name": "AMD Ryzen 7",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 8,
+    "fields": {
+        "name": "AMD Ryzen 9",
+        "category": 1
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 9,
+    "fields": {
+        "name": "AMD 5",
+        "category": 2
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 10,
+    "fields": {
+        "name": "AMD 6",
+        "category": 2
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 11,
+    "fields": {
+        "name": "RTX 20",
+        "category": 2
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 12,
+    "fields": {
+        "name": "RTX30",
+        "category": 2
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 13,
+    "fields": {
+        "name": "AM4",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 14,
+    "fields": {
+        "name": "Intel sockets",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 15,
+    "fields": {
+        "name": "B450",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 16,
+    "fields": {
+        "name": "B550",
+        "category": 3
+    }
+    }
+    ,
+    {
+    "model": "products.SubCategory",
+    "pk": 17,
+    "fields": {
+        "name": "B460",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 18,
+    "fields": {
+        "name": "B560",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 19,
+    "fields": {
+        "name": "Z490",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 20,
+    "fields": {
+        "name": "Z590",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 21,
+    "fields": {
+        "name": "ATX",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 22,
+    "fields": {
+        "name": "M-ATX",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 23,
+    "fields": {
+        "name": "ITX",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 24,
+    "fields": {
+        "name": "2 slots",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 25,
+    "fields": {
+        "name": "4 slots",
+        "category": 3
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 26,
+    "fields": {
+        "name": "ATX",
+        "category": 4
+    }
+    }
+    ,
+    {
+    "model": "products.SubCategory",
+    "pk": 27,
+    "fields": {
+        "name": "M - ATX",
+        "category": 4
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 28,
+    "fields": {
+        "name": "ITX",
+        "category": 4
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 29,
+    "fields": {
+        "name": "8GB",
+        "category": 5
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 30,
+    "fields": {
+        "name": "16GB",
+        "category": 5
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 31,
+    "fields": {
+        "name": "32GB",
+        "category": 5
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 32,
+    "fields": {
+        "name": "80 Plus",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 33,
+    "fields": {
+        "name": "80 Plus Bronze",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 34,
+    "fields": {
+        "name": "80 Plus Gold",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 35,
+    "fields": {
+        "name": "80 Plus Platinum",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 36,
+    "fields": {
+        "name": "80 Plus Titanium",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 37,
+    "fields": {
+        "name": "500W",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 37,
+    "fields": {
+        "name": "850W",
+        "category": 6
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 38,
+    "fields": {
+        "name": "SSD",
+        "category": 7
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 39,
+    "fields": {
+        "name": "HDD",
+        "category": 7
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 39,
+    "fields": {
+        "name": "120GB",
+        "category": 7
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 40,
+    "fields": {
+        "name": "512GB",
+        "category": 7
+    }
+    },
+    {
+    "model": "products.SubCategory",
+    "pk": 41,
+    "fields": {
+        "name": "1 TB",
+        "category": 7
+    }
+    }
+]
+

@@ -1,0 +1,74 @@
+version: "2"
+
+services:
+  db:
+    container_name: django-db
+    image: library/postgres:13.0
+    ports:
+      - 6432:5432
+    restart: unless-stopped
+    networks:
+      - default
+    volumes:
+      - ../db/partsfinder:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=django
+
+  redis:
+    container_name: partsfinder-redis
+    image: library/redis:5.0-alpine
+    ports:
+      - 6379:6379
+    restart: unless-stopped
+    networks:
+      - default
+    volumes:
+      - partsfinder-redis:/data
+
+  partsfinder:
+    container_name: partsfinder-api
+    ports:
+      - 8000:8000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - default
+    depends_on:
+      - db
+    volumes:
+      - ./partsfinder/:/app/partsfinder:Z
+      - ./core/:/app/core:Z
+      - ./static/:/app/static:Z
+      - ./templates/:/app/templates:Z
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file: common.env
+
+  worker:
+    container_name: partsfinder-worker
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        STATIC_URL: "/static/"
+    command: celery -A partsfinder --app=partsfinder.celeryconf:app worker -B --loglevel=info
+    restart: unless-stopped
+    networks:
+      - default
+    env_file: common.env
+    depends_on:
+      - redis
+    volumes:
+      - ./partsfinder/:/app/partsfinder:Z,cached
+      - ./core/:/app/core:Z
+      - ./static/:/app/static:Z
+      # shared volume between worker and api for media
+
+volumes:
+  partsfinder-redis:
+    driver: local
+networks:
+  default:
+    driver: bridge

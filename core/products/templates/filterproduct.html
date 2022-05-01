@@ -1,0 +1,208 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/filtered-products.css' %}" />
+<h1 class="ml-5 mb-3">{{categories.name}}</h1>
+<div class="row">
+  <div class="col-2">
+    <h4>Filter</h4>
+    {%for sub in filter%}
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="{{sub.id}}"
+        onclick="myFunction('{{sub.id}}','{{sub.category.id}}','{{sub.name}}')"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        {{sub.name}}
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-5">
+    <h4>MicroCenter</h4>
+    <div class="Products micro">
+      {% for product in products_microCenter %}
+      <div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="{{product.thumbnail}}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >${{product.price}}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="{{product.urls}}" target="_blank"> Click here</a>
+          </li>
+          <li class="list-group-item">
+            Available:{% if product.available == False %}
+            <span class="Tesco" style="color: red">No</span>
+            {% else %}
+            <span class="Tesco" style="color: green">Yes</span>
+            {% endif %}
+            <br />
+          </li>
+          <li class="list-group-item">Update at: {{product.updated_at}}</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-5">
+    <h4>CenterComputer</h4>
+    <div class="Products center">
+      {% for product in products_centerComputer %}
+      <div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="{{product.thumbnail}}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >${{product.price}}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="{{product.urls}}" target="_blank"> Click here</a>
+          </li>
+          <li class="list-group-item">
+            Available:{% if product.available == False %}
+            <span class="Tesco" style="color: red">No</span>
+            {% else %}
+            <span class="Tesco" style="color: green">Yes</span>
+            {% endif %}
+            <br />
+          </li>
+          <li class="list-group-item">Update at: {{product.updated_at}}</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+  function myFunction(id_sub, id_cat, name) {
+    var checkBox = document.getElementById(id_sub, id_cat, name);
+    if (checkBox.checked == true) {
+      var obj = {
+        id_sub: id_sub,
+        id_cat: id_cat,
+        name: name,
+      };
+      $.ajax({
+        type: "POST",
+        url: "/getProductsByFilter/",
+        data: obj,
+        success: function (data) {
+          $(".micro").empty();
+          $(".center").empty();
+          $(".microVariable").empty();
+          data.products_microCenter.forEach((element) => {
+            $(`<div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="${element.thumbnail}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">${element.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >$${element.price}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="${element.urls}" target="_blank">
+              Click here</a
+            >
+          </li>
+          <li class="list-group-item micro-${element.id}">
+          </li>
+          <li class="list-group-item">Update at: ${element.updated_at}</li>
+        </ul>
+      </div>`).appendTo(".micro");
+            if (!element.available) {
+              $(
+                `<div>Available:</div><span class="Tesco" style="color: red">No</span>`
+              ).appendTo(".micro-" + element.id);
+            } else {
+              $(
+                `<div>Available:</div><span class="Tesco" style="color: green">Yes</span> <br />`
+              ).appendTo(".micro-" + element.id);
+            }
+          });
+          data.products_centerComputer.forEach((element) => {
+            $(`<div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="${element.thumbnail}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">${element.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >$ ${element.price}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="${element.urls}" target="_blank">
+              Click here</a
+            >
+          </li>
+          <li class="list-group-item center-${element.id}">
+          </li>
+          <li class="list-group-item">Update at: ${element.updated_at}</li>
+        </ul>
+      </div>`).appendTo(".center");
+            if (!element.available) {
+              $(
+                `<div>Available:</div><span class="Tesco" style="color: red">No</span> <br />`
+              ).appendTo(".center-" + element.id);
+            } else {
+              $(
+                `<div>Available:</div><span class="Tesco" style="color: green">Yes</span> <br />`
+              ).appendTo(".center-" + element.id);
+            }
+          });
+        },
+      });
+    } else {
+      console.log(id);
+    }
+  }
+</script>
+
+{% endblock %}

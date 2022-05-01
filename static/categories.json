@@ -1,0 +1,58 @@
+[
+  {
+    "model": "products.Category",
+    "pk": 1,
+    "fields": {
+      "name": "Processors",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_IntelAMDProcessors500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 2,
+    "fields": {
+      "name": "Graphics Cards",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_videoCards500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 3,
+    "fields": {
+      "name": "Motherboards",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_motherboards500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 4,
+    "fields": {
+      "name": "Computer Cases",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_cases500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 5,
+    "fields": {
+      "name": "Computer Memory",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_memory500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 6,
+    "fields": {
+      "name": "Power Supplies",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_powers_supplies500.jpg"
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 7,
+    "fields": {
+      "name": "Hard Drives & Data Storage",
+      "thumbnail": "https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_ssd500.jpg"
+    }
+  }
+]

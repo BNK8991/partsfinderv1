@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<h1 class="ml-5 mb-3">{{categories.name}}</h1>
+<link rel="stylesheet" href="{% static 'css/filtered-products.css' %}" />
+<div class="row ml-4 mb-3">
+  <div class="col-3">
+    <form class="d-flex" action="/search">
+      <input
+        class="form-control me-2"
+        name="q"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success ml-2" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <h4>MicroCenter</h4>
+    <div class="Products">
+      {% for product in products_microCenter %}
+      <div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="{{product.thumbnail}}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >${{product.price}}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="{{product.urls}}" target="_blank"> Click here</a>
+          </li>
+          <li class="list-group-item">
+            Available:{% if product.available == False %}
+            <span class="Tesco" style="color: red">No</span>
+            {% else %}
+            <span class="Tesco" style="color: green">Yes</span>
+            {% endif %}
+            <br />
+          </li>
+          <li class="list-group-item">Update at: {{product.updated_at}}</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-6">
+    <h4>CenterComputer</h4>
+    <div class="Products">
+      {% for product in products_centerComputer %}
+      <div class="card mb-2 product">
+        <img
+          class="card-img-top"
+          src="{{product.thumbnail}}"
+          alt="Card image cap"
+          width="150px"
+          height="400px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Price:
+            <span class="Tesco" style="color: green; font-size: 30px"
+              >${{product.price}}</span
+            >
+          </li>
+          <li class="list-group-item">
+            Link:
+            <a href="{{product.urls}}" target="_blank"> Click here</a>
+          </li>
+          <li class="list-group-item">
+            Available:{% if product.available == False %}
+            <span class="Tesco" style="color: red">No</span>
+            {% else %}
+            <span class="Tesco" style="color: green">Yes</span>
+            {% endif %}
+            <br />
+          </li>
+          <li class="list-group-item">Update at: {{product.updated_at}}</li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
