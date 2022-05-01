@@ -5,7 +5,7 @@
 1. Clone the application:
 
 ```sh
-git clone https://github.com/BNK8991/partsfinder.git
+git clone https://github.com/BNK8991/partsfinderv1.git
 ```
 
 ## Pull new source code on main branch
