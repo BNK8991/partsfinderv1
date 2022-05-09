@@ -7,6 +7,7 @@ from partsfinder.celeryconf import app
 
 from .models import Category, Product
 
+#Links of Microcenter's products
 microcenter_url_graphic = "https://www.microcenter.com/search/search_results.aspx?N=4294966937&NTK=all&sortby=match&rpp=48&myStore=false"
 microcenter_url_cpu = "https://www.microcenter.com/search/search_results.aspx?N=4294966995&NTK=all&sortby=match&rpp=48&myStore=false"
 microcenter_url_memory = "https://www.microcenter.com/search/search_results.aspx?N=4294966653&NTK=all&sortby=match&rpp=48&myStore=false"
@@ -14,6 +15,8 @@ microcenter_url_mainBroad = "https://www.microcenter.com/search/search_results.a
 microcenter_url_power = "https://www.microcenter.com/search/search_results.aspx?Ntk=all&sortby=match&N=4294966654&rpp=48&myStore=false"
 microcenter_url_pcCase = "https://www.microcenter.com/search/search_results.aspx?N=4294964318&NTK=all&sortby=match&rpp=48&myStore=false"
 microcenter_url_ssd = "https://www.microcenter.com/search/search_results.aspx?N=4294966958&NTK=all&sortby=match&rpp=48&myStore=false"
+
+#Links of Central Computer's products
 centralcomputer_url_graphic = "https://www.centralcomputer.com/all-products/hardware/video-cards.html"
 centralcomputer_url_cpu = "https://www.centralcomputer.com/all-products/hardware/cpus.html"
 centralcomputer_url_memory = "https://www.centralcomputer.com/all-products/hardware/memory.html"
@@ -28,11 +31,12 @@ lst_centralcomputer = [centralcomputer_url_cpu, centralcomputer_url_graphic, cen
                        centralcomputer_url_pcCase, centralcomputer_url_memory, centralcomputer_url_power, centralcomputer_url_ssd]
 
 
-@app.task
+@app.task #Registering the function into Celery
 def crawl_data():
     category_lst = Category.objects.all().order_by("id")
     product_lst = []
     product_lst_print = []
+    #Scrapping for MicroCenter
     for category, url in zip(category_lst, lst_microcenter):
         req = requests.get(url, 'html.parser')
         soup = BeautifulSoup(req.content, 'html.parser')
@@ -70,6 +74,8 @@ def crawl_data():
             product_lst_print.append(obj)
             product_model = Product(**obj)
             product_lst.append(product_model)
+
+    #Scrapping for Centralcomputer        
     for category, url in zip(category_lst, lst_centralcomputer):
         req = requests.get(url, 'html.parser')
         soup_central = BeautifulSoup(req.content, 'lxml')
